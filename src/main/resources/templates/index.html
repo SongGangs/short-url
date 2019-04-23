@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>短网址服务</title>
+    <style>
+        .generatorLabel {
+            width: 150px;
+            display: inline-block;
+            text-align: right;
+        }
+
+        .generatorInput {
+            margin-left: 20px;
+            width: 300px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<h2 style="text-align: center">短网址服务Demo</h2>
+<div style="margin: 0 auto;width: 600px;">
+    <h3 style="text-align: center">短网址生成</h3>
+    <p><label class="generatorLabel">原始网址: </label><input class="generatorInput" type="text" id="url"></p>
+    <p><label class="generatorLabel">指定短网址: </label><input class="generatorInput" type="text" id="shortUrl"></p>
+    <p><label class="generatorLabel">长度:</label> <input class="generatorInput" type="number" id="length"></p>
+    <p><label class="generatorLabel">字符集:</label>
+        <select class="generatorInput" id="charset">
+            <option value="0">默认</option>
+            <option value="1">小写字母＋数字</option>
+            <option value="2">大写字母＋数字</option>
+            <option value="3">小写字母</option>
+            <option value="4">大写字母</option>
+        </select>
+    </p>
+    <button type="button" style=" margin-left: 250px;" onclick="generate()">生成</button>
+    <p><label class="generatorLabel">生成短网址:</label>&nbsp;<a target="_blank" href="javascript:;" id="result"></a></p>
+
+</div>
+
+
+<div style="margin: 0 auto; margin-top:40px;width: 600px;">
+    <h3 style="text-align: center">短网址访问查询</h3>
+    <p><label class="generatorLabel">短网址: </label><input class="generatorInput" type="text" id="queriedShortUrl"></p>
+
+    <button type="button" style=" margin-left: 250px;" onclick="queryReqCount()">查询</button>
+    <p><label class="generatorLabel">访问次数:</label>&nbsp;<span id="reqCount"></span></p>
+
+</div>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+</html>

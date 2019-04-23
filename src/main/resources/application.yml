@@ -1,0 +1,57 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    name: lemo
+    # 数据库访问配置, 使用druid数据源 在使用druid数据源时要注意在部署时多个tomcat项目使用一个数据源的情况
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_short_url?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useUnicode=true
+    username: root
+    password: 12345678
+    # 初始化大小，最小，最大，配置获取连接等待超时的时间
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    # 配置有一个连接在连接池中的最小生存时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+  ####################################
+  ############Redis配置#################
+  ####################################
+  redis:
+    host: 10.26.28.180
+    port: 6379
+    password: 123!@#QWE
+    database: 8
+    timeout: 7200
+
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+  resources:
+    static-locations: classpath:/static/
+####################################
+###########日志配置#################
+####################################
+logging:
+  level:
+    per:
+      childs:
+        shortUrl: DEBUG
+##################################################
+#####        mybatis configurations          #####
+##################################################
+mybatis:
+  config-location: classpath:mybatis-config.xml
+
+util:
+  encrypt:
+    key: childs
